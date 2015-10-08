@@ -1,0 +1,11 @@
+{
+  "name": "polymer-ext",
+  "version": "1.0.0",
+  "description": "A extension of Polymer.",
+  "main": "index.js",
+  "scripts": {
+    "test": "open test/test.html"
+  },
+  "author": "Tingzhao Yu",
+  "license": "ISC"
+}
