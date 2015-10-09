@@ -99,7 +99,14 @@
 	            '"><style type="text/css">', options.style || '',
 	            '</style><template>', options.template || '',
 	            '</template></dom-module>'].join('')
-	        document.write(html)
+	        if (document.readyState === 'complete') {
+	            var ele = document.createElement('div')
+	            ele.style.display = 'none'
+	            ele.innerHTML = html
+	            document.body.appendChild(ele)
+	        } else {
+	            document.write(html)
+	        }
 	        Polymer.apply(this, arguments)
 	    }
 
