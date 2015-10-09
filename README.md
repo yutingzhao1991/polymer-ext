@@ -16,7 +16,12 @@ Just use **PolymerExt**
 Usage
 ---
 
+PolymerExt Extended two options **template** and **style**, Recommend ues PolymerExt with [webpack](http://webpack.github.io/docs/) and [raw-loader](https://github.com/webpack/raw-loader).
+
+
 ```
+var PolymerExt = require('polymer-ext')
+
 var t = require('raw!./test.tmpl')
 var s = require('raw!./test.css')
 
@@ -27,5 +32,3 @@ PolymerExt({
   ... // other polymer options
 })
 ```
-
-PolymerExt Extended two options **template** and **style**, Recommend ues PolymerExt with [webpack](http://webpack.github.io/docs/) and [raw-loader](https://github.com/webpack/raw-loader).
