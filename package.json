@@ -1,10 +1,14 @@
 {
   "name": "polymer-ext",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "A extension of Polymer.",
   "main": "index.js",
   "scripts": {
     "test": "webpack test/test.js test/bundle.js && open test/test.html"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/yutingzhao1991/polymer-ext.git"
   },
   "author": "Tingzhao Yu",
   "license": "ISC",
