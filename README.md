@@ -11,21 +11,21 @@ Just use **PolymerExt**
 
 [DEMO](http://yutingzhao.com/polymer-ext/test/test.html)
 
-[DEMO SRC](https://github.com/yutingzhao1991/polymer-ext/blob/master/test/test.html)
+[DEMO SRC](https://github.com/yutingzhao1991/polymer-ext/blob/master/test/test.js)
 
 Usage
 ---
 
 ```
+var t = require('raw!./test.tmpl')
+var s = require('raw!./test.css')
+
 PolymerExt({
   is: 'card-panel',
-  template: 'template string ...',
-  style: 'style string ...',
+  template: t,
+  style: s,
   ... // other polymer options
 })
 ```
 
-TODO
----
-
-Develop polymer-ext-loader for webpack.
+PolymerExt Extended two options **template** and **style**, Recommend ues PolymerExt with [webpack](http://webpack.github.io/docs/) and [raw-loader](https://github.com/webpack/raw-loader).

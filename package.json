@@ -4,8 +4,12 @@
   "description": "A extension of Polymer.",
   "main": "index.js",
   "scripts": {
-    "test": "open test/test.html"
+    "test": "webpack test/test.js test/bundle.js && open test/test.html"
   },
   "author": "Tingzhao Yu",
-  "license": "ISC"
+  "license": "ISC",
+  "devDependencies": {
+    "raw-loader": "^0.5.1",
+    "webpack": "^1.12.2"
+  }
 }

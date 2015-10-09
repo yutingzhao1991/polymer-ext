@@ -1,38 +1,8 @@
 'use strict';
 
-var t = '<div class="header">\
-      <content select="header"></content>\
-    </div>\
-    <div class="box" id="cardPanelBox">\
-      <content select="*"></content>\
-    </div>'
-
-var s =   ':host {\
-    display: block;\
-    color: #666;\
-    position: relative;\
-  }\
-  .header {\
-    background-color: #fff;\
-    border-radius: 2px;\
-    border-color: #e4e5e7;\
-    border: 1px solid #e4e5e7;\
-    min-height: 40px;\
-    line-height: 40px;\
-    font-weight: bold;\
-    position: relative;\
-    padding: 0 50px 0 10px;\
-    z-index: 3;\
-    color: red;\
-  }\
-  .box {\
-    border-radius: 2px;\
-    background-color: #fff;\
-    overflow: hidden;\
-    border-color: #e4e5e7;\
-    border: 1px solid #e4e5e7;\
-    border-top: 0px;\
-  }'
+var t = require('raw!./test.tmpl')
+var s = require('raw!./test.css')
+var PolymerExt = require('..')
 
 PolymerExt({
   is: 'card-panel',
