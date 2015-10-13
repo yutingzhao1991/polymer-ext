@@ -107,7 +107,7 @@
 	        } else {
 	            document.write(html)
 	        }
-	        Polymer.apply(this, arguments)
+	        return Polymer.apply(this, arguments)
 	    }
 
 	    // for AMD, CMD or browser global var, copy from underscore.
