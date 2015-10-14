@@ -53,7 +53,7 @@
 	PolymerExt({
 	  is: 'card-panel',
 	  template: t,
-	  style: s,
+	  stylesheet: s,
 	  properties: {
 	    padding: {
 	      type: Number
@@ -70,6 +70,7 @@
 	    }
 	  }
 	})
+
 
 /***/ },
 /* 1 */
@@ -90,13 +91,13 @@
 	var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/* WEBPACK VAR INJECTION */(function(global) {(function() {
 	    'use strict';
 	    // Extension for Polymer.
-	    // PolymerExt accept two others option template and style.
+	    // PolymerExt accept two others option template and stylesheet.
 	    var PolymerExt = function(options) {
-	        if (!options || (!options.template && !options.style)) {
+	        if (!options || (!options.template && !options.stylesheet)) {
 	            return
 	        }
 	        var html = ['<dom-module id="', options.is,
-	            '"><style type="text/css">', options.style || '',
+	            '"><style type="text/css">', options.stylesheet || '',
 	            '</style><template>', options.template || '',
 	            '</template></dom-module>'].join('')
 	        if (document.readyState === 'complete') {
@@ -128,6 +129,7 @@
 	        }.apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__), __WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
 	    }
 	}());
+
 	/* WEBPACK VAR INJECTION */}.call(exports, (function() { return this; }())))
 
 /***/ }

@@ -1,13 +1,13 @@
 (function() {
     'use strict';
     // Extension for Polymer.
-    // PolymerExt accept two others option template and style.
+    // PolymerExt accept two others option template and stylesheet.
     var PolymerExt = function(options) {
-        if (!options || (!options.template && !options.style)) {
+        if (!options || (!options.template && !options.stylesheet)) {
             return
         }
         var html = ['<dom-module id="', options.is,
-            '"><style type="text/css">', options.style || '',
+            '"><style type="text/css">', options.stylesheet || '',
             '</style><template>', options.template || '',
             '</template></dom-module>'].join('')
         if (document.readyState === 'complete') {

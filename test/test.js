@@ -7,7 +7,7 @@ var PolymerExt = require('..')
 PolymerExt({
   is: 'card-panel',
   template: t,
-  style: s,
+  stylesheet: s,
   properties: {
     padding: {
       type: Number

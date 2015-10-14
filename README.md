@@ -19,7 +19,7 @@ Just use **PolymerExt**
 Usage
 ---
 
-PolymerExt Extended two options **template** and **style**, Recommend ues PolymerExt with [webpack](http://webpack.github.io/docs/) and [raw-loader](https://github.com/webpack/raw-loader).
+PolymerExt Extended two options **template** and **stylesheet**, Recommend ues PolymerExt with [webpack](http://webpack.github.io/docs/) and [raw-loader](https://github.com/webpack/raw-loader).
 
 
 ```
@@ -31,7 +31,7 @@ var s = require('raw!./test.css')
 PolymerExt({
   is: 'card-panel',
   template: t,
-  style: s,
+  stylesheet: s,
   ... // other polymer options
 })
 ```
