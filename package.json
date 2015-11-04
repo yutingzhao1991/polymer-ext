@@ -4,7 +4,8 @@
   "description": "A extension of Polymer.",
   "main": "index.js",
   "scripts": {
-    "test": "webpack test/test.js test/bundle.js && open test/test.html"
+    "test": "webpack test/test.js test/bundle.js && open test/test.html",
+    "watch": "webpack --watch test/test.js test/bundle.js"
   },
   "repository": {
     "type": "git",

@@ -71,7 +71,6 @@
 	  }
 	})
 
-
 /***/ },
 /* 1 */
 /***/ function(module, exports) {
@@ -108,7 +107,16 @@
 	        } else {
 	            document.write(html)
 	        }
-	        return Polymer.apply(this, arguments)
+	        if (window.Polymer) {
+	            return Polymer.apply(this, arguments)
+	        } else {
+	            var args = arguments
+	            var that = this
+	            window.addEventListener('WebComponentsReady', function(e) {
+	                Polymer.apply(that, args)
+	            })
+	            return null
+	        }
 	    }
 
 	    // for AMD, CMD or browser global var, copy from underscore.
