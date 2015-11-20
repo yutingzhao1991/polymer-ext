@@ -11,7 +11,26 @@ PolymerExt({
   properties: {
     padding: {
       type: Number
+    },
+    a: {
+      type: String,
+      value: 'I am a'
+    },
+    b: {
+      type: String,
+      value: 'I am b'
     }
+  },
+  asyncObservers: ['asyncTest(a, b)'],
+  asyncTest: function(a, b) {
+    this.log('asyncObserver trigger: a or b changed')
+  },
+  log: function(text) {
+    this.$.log.innerHTML += text + '<br>'
+  },
+  onAsyncTestClicked: function() {
+    this.a = 'a changed'
+    this.b = 'b changed'
   },
   ready: function() {
     if (this.padding === 0) {

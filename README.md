@@ -8,6 +8,8 @@ Want to use polymer with CMD and webpack?
 
 Want separate HTML, CSS, JS from a polymer component?
 
+Want add a asynchronous observers and trigger only once when multiple properties changes?
+
 Just use **PolymerExt**
 
 **Simple and Effective**
@@ -16,8 +18,11 @@ Just use **PolymerExt**
 
 [DEMO SRC](https://github.com/yutingzhao1991/polymer-ext/blob/master/test/test.js)
 
-Usage
+Ext API
 ---
+
+### template && stylesheet
+
 
 PolymerExt Extended two options **template** and **stylesheet**, Recommend ues PolymerExt with [webpack](http://webpack.github.io/docs/) and [raw-loader](https://github.com/webpack/raw-loader).
 
@@ -35,6 +40,21 @@ PolymerExt({
   ... // other polymer options
 })
 ```
+
+### asyncObservers
+
+asyncObservers declare format same as observers, but it will be trigger asynchronous and trigger only once when multiple properties changes.
+
+```
+var PolymerExt = require('polymer-ext')
+
+PolymerExt({
+  is: 'card-panel',
+  asyncObservers: ['functionName(argA, argB)'],
+  ... // other polymer options
+})
+```
+
 
 License
 ---
