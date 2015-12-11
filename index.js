@@ -57,16 +57,34 @@
 
   function generateHandlerMethod(func, methodName) {
     func.__excuteFlag = 0
+    func.__excuteInstances = []
     return function() {
-      var that = this
-      var args = arguments
+      var isNewInstance = true
       func.__excuteFlag ++
+      for (var i = 0; i < func.__excuteInstances.length; i++) {
+        if (func.__excuteInstances[i].instance === this) {
+          // already included.
+          isNewInstance = false
+          func.__excuteInstances[i].args = arguments
+          break
+        }
+      }
+      if (isNewInstance) {
+        func.__excuteInstances.push({
+          instance: this,
+          args: arguments
+        })
+      }
       // async is a util method of polymer
       this.async(function() {
         func.__excuteFlag --
         if (func.__excuteFlag == 0) {
-          // Only trigger the last one
-          func.apply(that, args)
+          // Trigger with all instances at the last one
+          var temp
+          while(func.__excuteInstances.length > 0) {
+            temp = func.__excuteInstances.shift()
+            func.apply(temp.instance, temp.args)
+          }
         }
       })
     }
