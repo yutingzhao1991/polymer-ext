@@ -6,9 +6,15 @@
     if (!options || (!options.template && !options.stylesheet)) {
       return
     }
+    var styleStr = ''
+    if (typeof options.stylesheet == 'string') {
+      styleStr = options.stylesheet
+    } else {
+      styleStr = options.stylesheet.join('\n')
+    }
     handlerAsyncObservers(options)
     var html = ['<dom-module id="', options.is,
-      '"><style type="text/css">', options.stylesheet || '',
+      '"><style type="text/css">', styleStr || '',
       '</style><template>', options.template || '',
       '</template></dom-module>'].join('')
     if (document.readyState === 'complete') {

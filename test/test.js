@@ -1,13 +1,15 @@
 'use strict';
 
+var PolymerExt = require('..')
+
 var t = require('raw!./test.tmpl')
 var s = require('raw!./test.css')
-var PolymerExt = require('..')
+var btnStyle = require('raw!./btn.css')
 
 PolymerExt({
   is: 'card-panel',
   template: t,
-  stylesheet: s,
+  stylesheet: [s, btnStyle],
   properties: {
     padding: {
       type: Number

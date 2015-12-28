@@ -36,7 +36,7 @@ var s = require('raw!./test.css')
 PolymerExt({
   is: 'card-panel',
   template: t,
-  stylesheet: s,
+  stylesheet: s, // stylesheet accept a array for multiple style.
   ... // other polymer options
 })
 ```

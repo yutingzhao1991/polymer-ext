@@ -46,14 +46,16 @@
 
 	'use strict';
 
-	var t = __webpack_require__(1)
-	var s = __webpack_require__(2)
-	var PolymerExt = __webpack_require__(3)
+	var PolymerExt = __webpack_require__(1)
+
+	var t = __webpack_require__(2)
+	var s = __webpack_require__(3)
+	var btnStyle = __webpack_require__(4)
 
 	PolymerExt({
 	  is: 'card-panel',
 	  template: t,
-	  stylesheet: s,
+	  stylesheet: [s, btnStyle],
 	  properties: {
 	    padding: {
 	      type: Number
@@ -92,18 +94,6 @@
 
 /***/ },
 /* 1 */
-/***/ function(module, exports) {
-
-	module.exports = "<div class=\"header\">\n  <content select=\"header\"></content>\n</div>\n<div class=\"box\" id=\"cardPanelBox\">\n  <content select=\"*\"></content>\n  <p>\n    <div>{{a}}</div>\n    <div>{{b}}</div>\n    <button on-click=\"onAsyncTestClicked\">async test</button>\n    <div id=\"log\"></div>\n  </p>\n</div>"
-
-/***/ },
-/* 2 */
-/***/ function(module, exports) {
-
-	module.exports = ":host {\n    display: block;\n    color: #666;\n    position: relative;\n}\n.header {\n    background-color: #fff;\n    border-radius: 2px;\n    border-color: #e4e5e7;\n    border: 1px solid #e4e5e7;\n    min-height: 40px;\n    line-height: 40px;\n    font-weight: bold;\n    position: relative;\n    padding: 0 50px 0 10px;\n    z-index: 3;\n    color: red;\n}\n.box {\n    border-radius: 2px;\n    background-color: #fff;\n    overflow: hidden;\n    border-color: #e4e5e7;\n    border: 1px solid #e4e5e7;\n    border-top: 0px;\n}"
-
-/***/ },
-/* 3 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/* WEBPACK VAR INJECTION */(function(global) {(function() {
@@ -114,9 +104,15 @@
 	    if (!options || (!options.template && !options.stylesheet)) {
 	      return
 	    }
+	    var styleStr = ''
+	    if (typeof options.stylesheet == 'string') {
+	      styleStr = options.stylesheet
+	    } else {
+	      styleStr = options.stylesheet.join('\n')
+	    }
 	    handlerAsyncObservers(options)
 	    var html = ['<dom-module id="', options.is,
-	      '"><style type="text/css">', options.stylesheet || '',
+	      '"><style type="text/css">', styleStr || '',
 	      '</style><template>', options.template || '',
 	      '</template></dom-module>'].join('')
 	    if (document.readyState === 'complete') {
@@ -236,6 +232,24 @@
 	}());
 
 	/* WEBPACK VAR INJECTION */}.call(exports, (function() { return this; }())))
+
+/***/ },
+/* 2 */
+/***/ function(module, exports) {
+
+	module.exports = "<div class=\"header\">\n  <content select=\"header\"></content>\n</div>\n<div class=\"box\" id=\"cardPanelBox\">\n  <content select=\"*\"></content>\n  <p>\n    <div>{{a}}</div>\n    <div>{{b}}</div>\n    <button class=\"btn btn-default\" on-click=\"onAsyncTestClicked\">async test</button>\n    <div id=\"log\"></div>\n  </p>\n</div>"
+
+/***/ },
+/* 3 */
+/***/ function(module, exports) {
+
+	module.exports = ":host {\n    display: block;\n    color: #666;\n    position: relative;\n}\n.header {\n    background-color: #fff;\n    border-radius: 2px;\n    border-color: #e4e5e7;\n    border: 1px solid #e4e5e7;\n    min-height: 40px;\n    line-height: 40px;\n    font-weight: bold;\n    position: relative;\n    padding: 0 50px 0 10px;\n    z-index: 3;\n    color: red;\n}\n.box {\n    border-radius: 2px;\n    background-color: #fff;\n    overflow: hidden;\n    border-color: #e4e5e7;\n    border: 1px solid #e4e5e7;\n    border-top: 0px;\n}"
+
+/***/ },
+/* 4 */
+/***/ function(module, exports) {
+
+	module.exports = ".btn {\n  display: inline-block;\n  margin: 5px 0;\n  font-weight: normal;\n  text-align: center;\n  vertical-align: middle;\n  -ms-touch-action: manipulation;\n      touch-action: manipulation;\n  cursor: pointer;\n  background-image: none;\n  border: 1px solid transparent;\n  white-space: nowrap;\n  padding: 6px 12px;\n  font-size: 14px;\n  line-height: 1.42857143;\n  border-radius: 4px;\n  -webkit-user-select: none;\n  -moz-user-select: none;\n  -ms-user-select: none;\n  user-select: none;\n}\n.btn-default {\n  color: #333333;\n  background-color: #ffffff;\n  border-color: #cccccc;\n}"
 
 /***/ }
 /******/ ]);
