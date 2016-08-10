@@ -55,6 +55,35 @@ PolymerExt({
 })
 ```
 
+### setConfig
+
+For better setConfig, you can init your components only when your need use it.
+
+By default, components will be auto init. But you can set it with `setConfig`
+
+```js
+var PolymerExt = require('polymer-ext')
+PolymerExt.setConifg({
+  autoInit: false
+})
+
+var ChildrenComponent = PolymerExt({ /* ... */ })
+
+var t = require('raw!./test.tmpl')
+var s = require('raw!./test.css')
+
+var CardPanel = PolymerExt({
+  is: 'card-panel',
+  template: t,
+  stylesheet: s, // stylesheet accept a array for multiple style.
+  components: [ChildrenComponent] // components's methods 'init' will be called before this component inited.
+  ... // other polymer options
+})
+
+// ...
+
+CardPanel.init()
+
 
 License
 ---
