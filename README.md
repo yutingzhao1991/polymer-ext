@@ -57,7 +57,7 @@ PolymerExt({
 
 ### setConfig
 
-For better setConfig, you can init your components only when your need use it.
+For better performance, you can init your components only when your need use it.
 
 By default, components will be auto init. But you can set it with `setConfig`
 
@@ -83,7 +83,7 @@ var CardPanel = PolymerExt({
 // ...
 
 CardPanel.init()
-
+```
 
 License
 ---
