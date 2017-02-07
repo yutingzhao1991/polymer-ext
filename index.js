@@ -44,7 +44,7 @@
       '"><style type="text/css">', styleStr || '',
       '</style><template>', options.template || '',
       '</template></dom-module>'].join('')
-    if (document.readyState === 'complete') {
+    if (document.readyState !== 'loading') {
       var ele = document.createElement('div')
       ele.style.display = 'none'
       ele.innerHTML = html

@@ -100,10 +100,37 @@
 	  'use strict';
 	  // Extension for Polymer.
 	  // PolymerExt accept two others option template and stylesheet.
+	  var globalConfig = {
+	    autoInit: true
+	  }
 	  var PolymerExt = function(options) {
 	    if (!options || (!options.template && !options.stylesheet)) {
 	      return
 	    }
+	    var retObj = {}
+	    retObj.init = function() {
+	      if (!options.__inited) {
+	        if (options.components) {
+	          for (var c in options.components) {
+	            options.components[c].init()
+	          }
+	        }
+	        initComponent(options)
+	      }
+	      options.__inited = true
+	    }
+	    if (globalConfig.autoInit || options.autoInit) {
+	      retObj.init()
+	    }
+	    return retObj
+	  }
+	  PolymerExt.setConfig = function(config) {
+	    if (config.autoInit != null) {
+	      globalConfig.autoInit = config.autoInit
+	    }
+	  }
+
+	  function initComponent(options) {
 	    var styleStr = ''
 	    if (typeof options.stylesheet == 'string') {
 	      styleStr = options.stylesheet
@@ -115,7 +142,7 @@
 	      '"><style type="text/css">', styleStr || '',
 	      '</style><template>', options.template || '',
 	      '</template></dom-module>'].join('')
-	    if (document.readyState === 'complete') {
+	    if (document.readyState !== 'loading') {
 	      var ele = document.createElement('div')
 	      ele.style.display = 'none'
 	      ele.innerHTML = html
